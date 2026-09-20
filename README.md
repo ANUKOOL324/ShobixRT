@@ -240,3 +240,21 @@ See `docs/stages/Stage-02-UART-Driver.md` for the QEMU CMSDK UART design,
 commands, and validation record. The repository's current `.gitignore` excludes
 `/docs/`, so that local stage note must be force-added deliberately if it should
 be versioned.
+
+## Current QEMU workflow
+
+Build the Cortex-M4 firmware with the GNU Arm toolchain:
+
+```sh
+make clean
+make
+```
+
+Run it on QEMU's `mps2-an386` board:
+
+```sh
+make run
+```
+
+UART0 output appears in the terminal. Press `Ctrl+C` to stop QEMU. Use
+`make debug` to start QEMU paused for a GDB session on port 1234.
